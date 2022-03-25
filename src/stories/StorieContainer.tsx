@@ -5,7 +5,7 @@ interface StorieContainerProps {
 }
 const StorieContainer: React.FC<StorieContainerProps> = ({children, title}) => {
     return (
-            <Card>
+            <Card style={{marginBottom: 20 }}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {title}

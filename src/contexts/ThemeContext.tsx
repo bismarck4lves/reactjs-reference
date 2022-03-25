@@ -6,6 +6,7 @@ type ContextProps = {
   dark: boolean;
   theme: SystemThemeOptions;
   setDark: (val: boolean) => void;
+  setThemeColors: (val: SystemThemeOptions) => void;
 };
 
 const Context = React.createContext({} as ContextProps);
@@ -13,12 +14,12 @@ const Context = React.createContext({} as ContextProps);
 export function ThemeProvider({ children }) {
   const [dark, setDark] = React.useState(false);
 
-  const [theme] = React.useState<SystemThemeOptions>({
+  const [theme, setThemeColors] = React.useState<SystemThemeOptions>({
     palette: {
       primary: {
-        main: "#00995c",
-        light: "#00F593",
-        dark: "#007546",
+        main: "#0084AB",
+        light: "#C3EEF7",
+        dark: "#0084AB",
         contrastText: "#FFFFFF",
       },
       secondary: {
@@ -39,7 +40,7 @@ export function ThemeProvider({ children }) {
 
   React.useEffect(loadSavedTheme, []);
 
-  return   <Context.Provider value={{ dark, theme, setDark }}>{children}</Context.Provider>
+  return   <Context.Provider value={{ dark, theme, setDark, setThemeColors }}>{children}</Context.Provider>
 }
 
 export function useThemeContext(): ContextProps {
