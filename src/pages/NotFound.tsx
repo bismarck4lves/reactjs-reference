@@ -29,7 +29,6 @@ const NotFound: React.FC = () => {
           <ArrowBackIcon/>
           Back to beginning </Button>
       </Stack>
-
     </Stack>
   );
 };
