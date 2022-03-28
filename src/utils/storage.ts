@@ -4,7 +4,6 @@ interface StorageProps {
   destroy: () => void;
 }
 
-
 export const persistToken: StorageProps = {
   set: (val) => {
     localStorage.setItem("project.token", JSON.stringify(val));
