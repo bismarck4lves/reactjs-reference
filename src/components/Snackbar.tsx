@@ -2,8 +2,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import Snackbar from "@mui/material/Snackbar";
+import { useToastContext } from "contexts/ToastContext";
 import React from "react";
-import { useToastContext } from "../contexts/ToastContext";
 
 const autoHideDuration = 3000;
 

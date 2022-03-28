@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useThemeContext } from "contexts/ThemeContext";
 import React from "react";
-import { useThemeContext } from "../contexts/ThemeContext";
 
 const Theme: React.FC = ({ children }) => {
   const { theme, dark } = useThemeContext();

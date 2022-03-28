@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactLogo from "../vetors/react";
+import ReactLogo from "vetors/react";
 import Container from "./StorieContainer";
 
 const Vectores = () => {

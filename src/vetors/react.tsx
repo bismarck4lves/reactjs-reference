@@ -1,5 +1,5 @@
+import { useThemeContext } from "contexts/ThemeContext";
 import React from "react";
-import { useThemeContext } from "../contexts/ThemeContext";
 
 const Logo: React.FC = (props) => {
   const { theme } = useThemeContext();

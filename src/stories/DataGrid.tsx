@@ -1,5 +1,5 @@
+import DataGrid, { GridColDef, GridValueGetterParams } from 'components/DataGrid';
 import React from 'react';
-import DataGrid, { GridColDef, GridValueGetterParams } from '../components/DataGrid';
 import { rows } from "./mocks";
 import Container from "./StorieContainer";
 
@@ -36,9 +36,7 @@ const columns: GridColDef[] = [
   },
 ];
 
-
-
-export default function DataGridDemo() {
+const  DataGridDemo: React.FC = () => {
   return (
     <Container title="Data Grid">
     <div style={{ height: 400, width: '100%' }}>
@@ -54,3 +52,5 @@ export default function DataGridDemo() {
     </Container>
   );
 }
+
+export default DataGridDemo;

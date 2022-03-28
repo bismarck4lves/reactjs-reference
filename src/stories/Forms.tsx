@@ -1,7 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import React from "react";
 import {
   AutoComplete,
   AvatarDropZone,
@@ -14,7 +13,8 @@ import {
   Switch,
   TextArea,
   TextField
-} from "../components/Form";
+} from "components/Form";
+import React from "react";
 import { countries } from "./mocks";
 import Container from "./StorieContainer";
 

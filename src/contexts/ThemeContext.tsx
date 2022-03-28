@@ -1,6 +1,6 @@
 import { ThemeOptions as SystemThemeOptions } from "@mui/system";
 import React from "react";
-import { persistTheme } from "../utils/storage";
+import { persistTheme } from "utils/storage";
 
 type ContextProps = {
   dark: boolean;

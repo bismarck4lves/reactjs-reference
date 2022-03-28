@@ -1,14 +1,14 @@
 import { Stack } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import React from "react";
-import { Button } from "../components/Button";
+import { Button } from "components/Button";
 import {
   Form,
   FormHandles,
   SubmitHandler,
   TextField
-} from "../components/Form";
-import { useThemeContext } from "../contexts/ThemeContext";
+} from "components/Form";
+import { useThemeContext } from "contexts/ThemeContext";
+import React from "react";
 import Container from "./StorieContainer";
 
 

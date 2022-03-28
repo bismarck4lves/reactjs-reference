@@ -1,7 +1,7 @@
 import { Stack } from "@mui/material";
+import { Button } from "components/Button";
+import { useToastContext } from "contexts/ToastContext";
 import React from "react";
-import { Button } from "../components/Button";
-import { useToastContext } from "../contexts/ToastContext";
 import Container from "./StorieContainer";
 
 const Toast: React.FC = () => {

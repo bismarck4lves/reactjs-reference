@@ -4,6 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import Grid from "@mui/material/Grid";
 import Toolbar from "@mui/material/Toolbar";
 import React from "react";
+import { getProjectVersion } from "utils/version";
 import ButtonsStorie from "../stories/Buttons";
 import DataGridStorie from "../stories/DataGrid";
 import DialogStorie from "../stories/Dialog";
@@ -11,7 +12,6 @@ import Forms from "../stories/Forms";
 import Theme from "../stories/Theme";
 import ToastStorie from "../stories/Toast";
 import Vectores from "../stories/Vectores";
-import { getProjectVersion } from "../utils/version";
 
 
 const Docs:React.FC = () => {
