@@ -4,6 +4,8 @@
 
 [UnForm](https://unform.dev/ "UnForm")
 
+[Yup](https://www.npmjs.com/package/yup "Yup")
+
 ##About imports
 
 It is strongly recommended that when you need to import general project files, use the absolute path.
