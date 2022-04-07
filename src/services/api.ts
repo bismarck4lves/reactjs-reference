@@ -1,9 +1,10 @@
 import axios from "axios";
+import { definitions } from "utils/environment";
 import { normalizeBaseUrl } from "utils/http-utils";
 
 const api = axios.create({
-  baseURL: 'https://your-project.com',
-    timeout: 5000
+  baseURL: definitions.api_url,
+  timeout: 5000
 });
 
 // Api is a prefix becouse is a convention. Normilize to your project if necessary
