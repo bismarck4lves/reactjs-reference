@@ -1,13 +1,22 @@
 
+import SingInPage from "pages/auth/SingIn";
 import NotFound from "pages/NotFound";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-
+import Protected from "./Protected";
+import UnProtected from "./UnProtected";
 
 const Router: React.FC = () => {
   return (
       <Routes>
-        <Route index element={<h1>Home page</h1>} />
+        <Route element={<UnProtected/>}>
+          <Route index element={<SingInPage/>} />
+        </Route>
+        
+        <Route element={<Protected/>}>
+          <Route path="/home" element={<h1> Home </h1>}/>
+        </Route>
+
         <Route path="*" element={<NotFound/>} />
       </Routes>
   );
