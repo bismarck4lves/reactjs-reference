@@ -10,7 +10,16 @@ import {
 import { useAuthContext } from "contexts/AuthContext";
 import { useToastContext } from "contexts/ToastContext";
 import React from "react";
+import * as Yup from "yup";
 
+export const singInValidator = Yup.object().shape({
+  username: Yup.string()
+    .email()
+    .required("Você deve informar o email de login"),
+  password: Yup.string()
+    .min(6, `A senha deve conter no mínimo 6 caracteres`)
+    .required("A senha é obrigatória"),
+});
 interface FormDataProps {
   username: string;
   password: string;
@@ -20,6 +29,7 @@ const SingIn: React.FC = () => {
   const { openToast, errorToast } = useToastContext();
 
   const [loading, setLoading] = React.useState(false);
+  const [isValidFormState, setIsValidFormState] = React.useState(false);
 
   const formRef = React.useRef<FormHandles>(null);
 
@@ -29,6 +39,16 @@ const SingIn: React.FC = () => {
       .then(() => openToast("Credenciais válidas"))
       .catch(() => errorToast("Não foi possível fazer login"))
       .finally(() => setLoading(false));
+  };
+
+  const handleInputChange = async () => {
+    try {
+      const data = formRef.current.getData();
+      await singInValidator.validate(data, { abortEarly: false });
+      setIsValidFormState(true);
+    } catch {
+      setIsValidFormState(false);
+    }
   };
 
   return (
@@ -43,11 +63,16 @@ const SingIn: React.FC = () => {
         <CardContent>
           <Form ref={formRef} onSubmit={onHandleSubmit}>
             <Stack spacing={2}>
-            <TextField label="login" name="username" />
-            <PasswordField label="senha" name="password" />
-            <Button type="submit" loading={loading} fullWidth>
-              Entrar
-            </Button>
+              <TextField label="email" name="username" onChange={handleInputChange} />
+              <PasswordField label="senha" name="password" onChange={handleInputChange} />
+              <Button 
+                type="submit" 
+                loading={loading}
+                disabled={!isValidFormState}
+                fullWidth
+              >
+                Entrar
+              </Button>
             </Stack>
           </Form>
         </CardContent>
