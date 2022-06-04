@@ -1,13 +1,12 @@
+import { useToastContext } from "contexts/ToastContext";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { postSingIn } from "services/auth";
 import { persistToken } from "utils/storage";
-
 interface SingInProps {
   username: string;
   password: string;
 }
-const MOCK_TOKEN =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjQ3NTU5OTcyLCJlbWFpbCI6IiJ9.Rb1JWT OTGWXiLvm5pQqCRzHKiRJeB9zsvjOwpTT7tOBJ0c";
 
 interface State {
   isAuthenticated: boolean;
@@ -22,18 +21,20 @@ const Context = React.createContext({} as ContextProps);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const navigate = useNavigate();
+  const { errorToast } = useToastContext();
 
   const isAuthenticated = !!persistToken.get();
 
   const singIn = (payload: SingInProps) =>
-    new Promise((resolve) =>
-      setTimeout(() => {
-        console.log(payload);
-        persistToken.set(MOCK_TOKEN);
+    postSingIn(payload)
+      .then((res) => {
+        persistToken.set(res.access);
         navigate("/");
-        resolve(true);
-      }, 2000)
-    );
+      })
+      .catch((err) => {
+        console.log(err)
+        errorToast("Usuário ou senha incorreto")
+      });
 
   const singOut = () => localStorage.clear();
 

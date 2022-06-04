@@ -14,10 +14,9 @@ import * as Yup from "yup";
 
 export const singInValidator = Yup.object().shape({
   username: Yup.string()
-    .email()
     .required("Você deve informar o email de login"),
   password: Yup.string()
-    .min(6, `A senha deve conter no mínimo 6 caracteres`)
+    // .min(6, `A senha deve conter no mínimo 6 caracteres`)
     .required("A senha é obrigatória"),
 });
 interface FormDataProps {
