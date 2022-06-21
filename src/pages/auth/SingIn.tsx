@@ -4,7 +4,7 @@ import React from "react";
 
 const SingInPage: React.FC = () => {
   return (
-  <AuthContainer>
+  <AuthContainer formTitle="Boas Vindas">
     <SingIn />
   </AuthContainer>
 )};

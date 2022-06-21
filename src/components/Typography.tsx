@@ -10,6 +10,7 @@ const sizes = {
   xl: "1.25rem", //20px
   xxl: "1.37rem", //22px
   display: "1.5rem", // 24px
+  giant: "2.25rem" // 36px
 };
 
 interface CustomTypographyProps extends TypographyProps {

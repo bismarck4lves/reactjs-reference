@@ -1,4 +1,4 @@
-import { Card, CardContent, Stack } from "@mui/material";
+import { CardContent, Stack, Typography } from "@mui/material";
 import { Button } from "components/Button";
 import {
   Form,
@@ -10,11 +10,18 @@ import {
 import { useAuthContext } from "contexts/AuthContext";
 import { useToastContext } from "contexts/ToastContext";
 import React from "react";
+import styled from "styled-components";
 import * as Yup from "yup";
 
+
+const CliqueOption = styled.span`
+  color: #4998fa;
+  font-weight: 500;
+  cursor: pointer;
+`
+
 export const singInValidator = Yup.object().shape({
-  username: Yup.string()
-    .required("Você deve informar o email de login"),
+  username: Yup.string().required("Você deve informar o email de login"),
   password: Yup.string()
     // .min(6, `A senha deve conter no mínimo 6 caracteres`)
     .required("A senha é obrigatória"),
@@ -56,26 +63,34 @@ const SingIn: React.FC = () => {
       justifyContent="center"
       alignItems="center"
       spacing={2}
-      style={{ height: "100vh" }}
     >
-      <Card>
-        <CardContent>
-          <Form ref={formRef} onSubmit={onHandleSubmit}>
-            <Stack spacing={2}>
-              <TextField label="email" name="username" onChange={handleInputChange} />
-              <PasswordField label="senha" name="password" onChange={handleInputChange} />
-              <Button 
-                type="submit" 
-                loading={loading}
-                disabled={!isValidFormState}
-                fullWidth
-              >
-                Entrar
-              </Button>
-            </Stack>
-          </Form>
-        </CardContent>
-      </Card>
+      <CardContent>
+        <Form ref={formRef} onSubmit={onHandleSubmit}>
+          <Stack spacing={2}>
+            <TextField
+              label="Login"
+              name="username"
+              onChange={handleInputChange}
+            />
+            <PasswordField
+              label="Senha"
+              name="password"
+              onChange={handleInputChange}
+            />
+            <Button
+              type="submit"
+              loading={loading}
+              disabled={!isValidFormState}
+              fullWidth
+            >
+              Entrar
+            </Button>
+            <div>
+              <Typography>Esqueceu sua senha? <CliqueOption> Clique aqui </CliqueOption> </Typography>
+            </div>
+          </Stack>
+        </Form>
+      </CardContent>
     </Stack>
   );
 };

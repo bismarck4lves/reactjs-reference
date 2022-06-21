@@ -1,4 +1,4 @@
-import { BiGroup } from "react-icons/bi";
+import { BiGroup, BiUpload } from "react-icons/bi";
 import { RiTimerLine } from "react-icons/ri";
 
 import { Stack } from "@mui/material";
@@ -24,6 +24,13 @@ const MenuOptions: React.FC = () => {
 
   const { theme } = useThemeContext();
   const data: MenuActionProps[] = [
+    {
+      icon: BiUpload,
+      name: "Importações",
+      pathname: views.importacao,
+      active: false,
+      action: () => navigate(views.importacao, { replace: true }),
+    },
     {
       icon: BiGroup,
       name: "Equipe e Pessoas",

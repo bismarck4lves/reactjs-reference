@@ -1,5 +1,6 @@
 import SingInPage from "pages/auth/SingIn";
 import Equipes from "pages/Equipes";
+import ImportProducaoDiariaPage from "pages/ImportProducaoDiaria";
 import NotFound from "pages/NotFound";
 import TurnosPage from "pages/Turnos";
 import React from "react";
@@ -14,11 +15,11 @@ const Router: React.FC = () => {
         <Route index element={<SingInPage />} />
       </Route>
       <Route element={<Protected />}>
-        <Route path="/home" element={<h1> Home </h1>} />
+        <Route path={views.equipes} element={<Equipes />} />
+        <Route path={views.turnos} element={<TurnosPage />} />
+        <Route path={views.importacao} element={<ImportProducaoDiariaPage />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path={views.equipes} element={<Equipes />} />
-      <Route path={views.turnos} element={<TurnosPage />} />
-      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
