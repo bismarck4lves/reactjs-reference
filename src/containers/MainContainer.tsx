@@ -39,7 +39,7 @@ const MainContainer: React.FC<MainContainerProps> = ({ children, title }) => {
         spacing={2}
         style={{
           width: "100%",
-          background: "#e7e7e7",
+          background: "#F5F5F5",
           height: "100vh",
         }}
       >

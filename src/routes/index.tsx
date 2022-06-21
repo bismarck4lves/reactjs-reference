@@ -1,4 +1,5 @@
 import SingInPage from "pages/auth/SingIn";
+import Equipes from "pages/Equipes";
 import NotFound from "pages/NotFound";
 import ScalePage from "pages/scales";
 import React from "react";
@@ -18,6 +19,7 @@ const Router: React.FC = () => {
         <Route path="/scales" element={<ScalePage />} />
       </Route>
 
+      <Route path="/equipes" element={<Equipes />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

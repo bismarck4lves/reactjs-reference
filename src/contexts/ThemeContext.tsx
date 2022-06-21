@@ -17,7 +17,7 @@ export function ThemeProvider({ children }) {
   const [theme, setThemeColors] = React.useState<SystemThemeOptions>({
     palette: {
       primary: {
-        main: "#0084AB",
+        main: "#2B8C4B",
         light: "#C3EEF7",
         dark: "#0084AB",
         contrastText: "#FFFFFF",
