@@ -1,14 +1,11 @@
 import MainContainer from "containers/MainContainer";
-import Turnos from "features/Turnos";
-import { TurnosProvider } from "features/Turnos/Context";
+import Turnos from "features/modules/escalas/Turnos";
 
 const TurnosPage = () => {
   return (
-    <TurnosProvider>
-      <MainContainer title="Turnos e Horários">
-        <Turnos />
-      </MainContainer>
-    </TurnosProvider>
+    <MainContainer title="Turnos e Horários">
+      <Turnos />
+    </MainContainer>
   );
 };
 

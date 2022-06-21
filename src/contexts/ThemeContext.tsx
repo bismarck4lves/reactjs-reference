@@ -18,12 +18,12 @@ export function ThemeProvider({ children }) {
     palette: {
       primary: {
         main: "#2B8C4B",
-        light: "#C3EEF7",
-        dark: "#0084AB",
+        light: "#0BBF47",
+        dark: "#0BBF47",
         contrastText: "#FFFFFF",
       },
       secondary: {
-        main: "#7D7D7D",
+        main: "#535151",
         light: "#DADADA",
         dark: "#4A4A4A",
         contrastText: "#FCFCFC",

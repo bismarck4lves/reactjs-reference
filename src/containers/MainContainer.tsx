@@ -4,15 +4,19 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import LeftSidebar from "components/LeftSidebar";
 import Typography from "components/Typography";
+import { useThemeContext } from "contexts/ThemeContext";
 import React from "react";
 
 const drawerWidth = 100;
+const containerBackground = "#F5F5F5";
 
 interface MainContainerProps {
   title?: string;
 }
 
 const MainContainer: React.FC<MainContainerProps> = ({ children, title }) => {
+  const {theme} = useThemeContext()
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -27,7 +31,7 @@ const MainContainer: React.FC<MainContainerProps> = ({ children, title }) => {
             display: { xs: "none", sm: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth,
+              background: theme.palette.secondary.main,
             },
           }}
           open
@@ -39,18 +43,22 @@ const MainContainer: React.FC<MainContainerProps> = ({ children, title }) => {
         spacing={2}
         style={{
           width: "100%",
-          background: "#F5F5F5",
+          background: containerBackground,
           height: "100vh",
         }}
       >
         <CardContent>
-          <Typography size="display" style={{
-            marginBottom: "20px"
-          }} weight="700">{title}</Typography>
+          <Typography
+            size="display"
+            style={{
+              marginBottom: "20px",
+            }}
+            weight="700"
+          >
+            {title}
+          </Typography>
           <Card>
-            <CardContent>
-            {children}
-            </CardContent>
+            <CardContent>{children}</CardContent>
           </Card>
         </CardContent>
       </Stack>

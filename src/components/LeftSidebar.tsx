@@ -3,6 +3,8 @@ import List from "@mui/material/List";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import styledComponent from "styled-components";
+import MenuOptions from "./MenuOptions";
+
 
 const ContainerSideBar = styledComponent.div`
   height: 100vh;
@@ -28,7 +30,7 @@ const LeftSidebar = (props) => {
     <ContainerSideBar>
       <Paper elevation={0} sx={{ minWidth: 100, maxWidth: 100 }}>
         <FireNav component="nav" disablePadding>
-          ItemMenu
+         <MenuOptions/>
         </FireNav>
       </Paper>
     </ContainerSideBar>
