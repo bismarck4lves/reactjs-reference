@@ -5,6 +5,7 @@ import { TextField } from "components/Form";
 import Typography from "components/Typography";
 import { useToastContext } from "contexts/ToastContext";
 import React from "react";
+import { obsctureEmail } from "utils/text";
 import CodeSended from "vetors/CodeSended";
 import * as Yup from "yup";
 import { useRestoreContext } from "./Context";
@@ -46,6 +47,14 @@ const EmailStep: React.FC = () => {
     setSuccessDialogOpened(false);
     setActiveStep(Steps.codigo);
   };
+  function EmailMessage() {
+    return (
+      <Typography textAlign="center" size="xs">
+        As instruções de redefinição de senha foram enviadas para{" "}
+        {obsctureEmail(getCurrentForm().email)}
+      </Typography>
+    );
+  }
 
   function SucessModal() {
     return (
@@ -56,10 +65,7 @@ const EmailStep: React.FC = () => {
             <Typography textAlign="center" size="medium" weight="700">
               E-mail enviado com sucesso!
             </Typography>
-            <Typography textAlign="center" size="xs">
-              As instruções de redefinição de senha foram enviadas para o e-mail
-              informado
-            </Typography>
+            <EmailMessage />
           </Stack>
         </Dialog.Content>
         <Dialog.Actions>
