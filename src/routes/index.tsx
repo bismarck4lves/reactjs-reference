@@ -1,3 +1,4 @@
+import RestorePage from "pages/auth/Restore";
 import SingInPage from "pages/auth/SingIn";
 import Equipes from "pages/Equipes";
 import ImportProducaoDiariaPage from "pages/ImportProducaoDiaria";
@@ -12,6 +13,7 @@ const Router: React.FC = () => {
   return (
     <Routes>
       <Route element={<UnProtected />}>
+        <Route path={views.reestore} element={<RestorePage />} />
         <Route index element={<SingInPage />} />
       </Route>
       <Route element={<Protected />}>

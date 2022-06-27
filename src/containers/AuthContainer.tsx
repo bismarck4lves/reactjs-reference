@@ -1,12 +1,15 @@
 import { Stack } from "@mui/material";
 import Typography from "components/Typography";
 import React from "react";
-import LogoVector from "vetors/logoVector";
+import LogoVector from "vetors/LogoVector";
 
 interface AuthContainerProps {
-  formTitle: string
+  formTitle: string;
 }
-const AuthContainer: React.FC<AuthContainerProps> = ({ children, formTitle }) => {
+const AuthContainer: React.FC<AuthContainerProps> = ({
+  children,
+  formTitle,
+}) => {
   return (
     <Stack
       direction="row"
@@ -36,7 +39,7 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ children, formTitle }) =>
         alignItems="center"
         style={{ width: "50%", height: "90%" }}
       >
-        <div>
+        <div style={{ width: "400px" }}>
           <Typography size="giant" weight="700" align="center">
             {formTitle}
           </Typography>
